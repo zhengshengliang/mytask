@@ -6,8 +6,13 @@
 	}
 }*/
 
-body {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-    background-color: green !important;
+
+.bg {
+    -webkit-print-color-adjust: exact; /* 这一行必须要 */
+    print-color-adjust: exact;
+    background-color: green;
+}
+
+@page {
+	size: landscape;
 }
