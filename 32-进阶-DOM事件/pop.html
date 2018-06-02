@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+      <meta charset="utf-8">
+      <title>JS Bin</title>
+       <style>
+       .wrapper {
+        /*   border: 1px solid red; */
+          position: relative;
+          display: inline-block;
+        }
+
+        .popContent {
+          border: 1px solid red;
+          position: absolute;
+          top: 0;
+          left: 100%;
+          white-space: nowrap;
+          padding: 10px;
+          margin-left: 10px;
+          background: white;
+          display: none;
+        }
+
+        .popContent::before {
+          position: absolute;
+          right: 100%;
+          top: 5px;
+          border: 10px solid transparent;
+          border-right-color: red;
+          content: '';
+        }
+
+        .popContent::after{
+          position: absolute;
+          right: 100%;
+          top: 5px;
+          border: 10px solid transparent;
+          border-right-color: white;
+          content: '';
+          margin-right: -1px;
+        }
+      </style>
+  </head>
+  <body>
+      <div id="wrapper" class="wrapper">
+         <button id="popBtn">点我出弹框</button>
+         <div id="popContent" class="popContent">
+              我是浮层哦~
+         </div>
+      </div>
+
+      <script type="text/javascript">
+        $('#popBtn').on('click', (e) => {
+          $('#popContent').show();
+          
+          setTimeout(() => {
+            $(window.document).one('click', () => {
+              $('#popContent').hide();
+            })
+          })
+        })
+
+        $('#popContent').on('click', (e) => {
+          e.stopPropagation();
+        })
+      </script>
+  </body>
+</html>
