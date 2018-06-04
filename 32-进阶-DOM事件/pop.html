@@ -53,13 +53,21 @@
 
       <script type="text/javascript">
         $('#popBtn').on('click', (e) => {
-          $('#popContent').show();
-          
-          setTimeout(() => {
-            $(window.document).one('click', () => {
-              $('#popContent').hide();
-            })
-          })
+          console.log($('#popContent').css("display"));
+          if ($('#popContent').css("display") === 'none') {
+            console.log('111');
+            $('#popContent').show();
+
+            setTimeout(() => {
+              $(window.document).one('click', () => {
+                console.log('2');
+                $('#popContent').hide();
+              })
+            })    
+          } else {
+            console.log('222');
+            $('#popContent').hide();
+          }
         })
 
         $('#popContent').on('click', (e) => {
