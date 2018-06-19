@@ -2,8 +2,8 @@
   var model = {
     // 获取数据
     init: function(){
-      var APP_ID = 'TsDnap9SEXjSvGSowP7gXXJC-gzGzoHsz'
-      var APP_KEY = 'rGye31p12mM3wFpNRn9RADu9'
+    var APP_ID = '6JpRV2WXKSE0sSqKWh5QbcHo-gzGzoHsz';
+    var APP_KEY = 'W9Ubls86Ka7hO9hzsObWubYb';
       AV.init({ appId: APP_ID, appKey: APP_KEY })
     },
     fetch: function(){ 
@@ -51,7 +51,7 @@
       )
     },
     bindEvents: function(){
-      this.form.addEventListener('submit', function(e){
+      this.form.addEventListener('submit', (e) => {
         e.preventDefault()
         this.saveMessage()
       })
